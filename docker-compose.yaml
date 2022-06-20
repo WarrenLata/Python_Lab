@@ -1,0 +1,47 @@
+
+version: '3.7'
+
+
+services:
+
+########################
+# argus-urba-bot-train #
+########################
+  train:
+    container_name: "model_service"
+    build: ./Model
+    environment:
+      - MODELS_DATA_PATH=/modeldata
+      #data base
+      - MYSQL_DATABASE=PROJECT_DB
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+    ports:
+      - 8002:80
+    volumes:
+      - ./modeldata:/modeldata
+      - ./Model/app:/app
+    links:
+      - db
+#    depends_on:
+#      - 'db'
+
+### database #####
+  db:
+    image: percona:5.7.24
+    container_name: "ML-project-mysql-db"
+    restart: always
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user'
+      MYSQL_PORT: 3306
+      MYSQL_ALLOW_EMPTY_PASSWORD: true,
+    ports:
+      - '3306:3306'
+    # FOR WINDOWS DOCKER-MACHINE UNCOMMENT LAST LINE
+    command: ["--innodb-use-native-aio=OFF", "--socket=/tmp/mysql.sock", "--bind-address=0.0.0.0", ]
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./volumes_data:/var/lib/mysql

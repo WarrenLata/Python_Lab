@@ -1,0 +1,12 @@
+Flask
+flask_restx
+Werkzeug==0.16.1
+tensorflow
+h5py
+scikit-learn
+peewee
+pymysql
+cryptography
+sklearn
+sklearn_crfsuite
+psutil
