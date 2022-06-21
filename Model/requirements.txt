@@ -1,0 +1,12 @@
+Flask
+flask_restx
+Werkzeug==0.16.1
+h5py
+markupsafe==2.0.1
+scikit-learn
+peewee
+pymysql
+cryptography
+sklearn
+sklearn_crfsuite
+psutil

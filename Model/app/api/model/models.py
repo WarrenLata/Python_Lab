@@ -1,5 +1,5 @@
 from flask_restx import fields, reqparse
-from configUtils.config import Config
+from configUtil.config import Config
 import werkzeug
 
 

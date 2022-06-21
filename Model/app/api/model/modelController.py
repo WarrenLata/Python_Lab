@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 from flask_restx import Resource, reqparse, Namespace, fields
 from flask import abort
 import os
@@ -13,15 +6,16 @@ import werkzeug
 from flask import send_file
 from werkzeug.datastructures import FileStorage
 from configUtil.config import Config
-from api.model.models import MethodsParamsModel
+from api.model.models import Models
 from core.chosenModel import ChosenModel
 import datetime
 
 ns = Namespace('model',
                description='Chosen model related operations', ordered=True, path="/training")
 config = Config()
-methodsParamsModel = MethodsParamsModel(ns)
+methodsParamsModel = Models(ns)
 postParser = methodsParamsModel.postModel()
+uploadModelParser = methodsParamsModel.uploadModelParser()
 
 chosen=ChosenModel()
 

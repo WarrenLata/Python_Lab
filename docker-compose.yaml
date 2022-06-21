@@ -7,11 +7,11 @@ services:
 ########################
 # argus-urba-bot-train #
 ########################
-  train:
+  model:
     container_name: "model_service"
     build: ./Model
     environment:
-      - MODELS_DATA_PATH=/modeldata
+      - MODELS_DATA_PATH=./modeldata
       #data base
       - MYSQL_DATABASE=PROJECT_DB
       - MYSQL_USER=user

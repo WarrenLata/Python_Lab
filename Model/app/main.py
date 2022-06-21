@@ -6,7 +6,7 @@ from flask_restx import Api
 from api.model.modelController import ns as PredictorNameSpace
 from api.sample.sampleController import ns as AddNewDataNamespace
 from logging.config import dictConfig
-from utils.DAOHelper import create_tables
+from utils.dataHelper import create_tables
 dictConfig({
     'version': 1,
     'disable_existing_loggers': False,
@@ -20,7 +20,7 @@ dictConfig({
         }
     },
     'root': {
-        'level': os.getenv('URBA_BOT_LOG_LEVEL', "WARNING"),
+        'level': os.getenv('PROJECT_LOG_LEVEL', "WARNING"),
         'handlers': ['wsgi']
     }
 

@@ -1,7 +1,7 @@
 Flask
 flask_restx
 Werkzeug==0.16.1
-spacy==2.3.7
+markupsafe==2.0.1
 tensorflow==2.5.0
 h5py
 scikit-learn

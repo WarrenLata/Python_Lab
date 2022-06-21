@@ -1,7 +1,6 @@
-rom
-flask_restx
-import fields, reqparse
-from configUtils.config import Config
+
+from flask_restx import fields, reqparse
+from configUtil.config import Config
 import werkzeug
 
 
@@ -14,27 +13,39 @@ class SampleModel():
     def postBook(self):
         parser = reqparse.RequestParser()
         parser.add_argument(
+            'title', type=str,
+            location='form',
+            required=True,
+        )
+
+        parser.add_argument(
+            'publicationDate', type=str,
+            location='form',
+            required=True,
+        )
+
+        parser.add_argument(
             'author', type=str,
             location='form',
             required=True,
         )
         parser.add_argument(
-            'num_pages', type=int,
+            'numPage', type=int,
             location='form',
             required=True,
         )
         parser.add_argument(
-            'language_code', type=str,
+            'languageCode', type=str,
             location='form',
             required=True,
         )
         parser.add_argument(
-            'ratings_count', type=int,
+            'ratingCount', type=int,
             location='form',
             required=True,
         )
         parser.add_argument(
-            'text_review_count', type=int,
+            'textReviewCount', type=int,
             location='form',
             required=True,
         )
@@ -44,7 +55,7 @@ class SampleModel():
             required=True,
         )
         parser.add_argument(
-            'actualValue', type=float,
+            'actualvalue', type=float,
             location='form',
             required=True,
         )

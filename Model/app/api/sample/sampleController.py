@@ -6,15 +6,15 @@ import werkzeug
 from werkzeug.datastructures import FileStorage
 from configUtil.config import Config
 from api.sample.sampleModel import SampleModel
+from services.sampleService import SampleService
 import datetime
 
 ns = Namespace('Sample',
                description='Operation add model', ordered=True, path="/BookSample")
 config = Config()
 sampleModel = SampleModel(ns)
-postParser = SampleModel.postBook()
-
-chosen=ChosenModel()
+postParser = sampleModel.postBook()
+sampleSer= SampleService()
 
 
 @ns.route('/add/Sample')
@@ -27,13 +27,22 @@ class SampleController(Resource):
         data = postParser.parse_args()
 
         try:
-            result=0
-            if (data["ratings_cout"]!=0 and data["num_page"]!=0 and data["text_review_count"]!=0):
-                modelPath=config.getModelsPath()
-                result=chosen.predict(data["author"],data["num_page"],data["ratings_cout"],data["text_review_count"],
-                                     data["publisher"])
+            title=data["title"]
+            numPage=data["numPage"]
+            ratingCount= data["ratingCount"]
+            textReviewCount = data["textReviewCount"]
+            author = data["author"]
+            languageCode = data["languageCoce"]
+            publisher= data["publisher"]
+            publicationDate = datetime.strptime(data["publicationDate"],'%Y/%m/%d %H:%M:%S')
+            datepos=datetime.datetime.now()
+            actualvalue=data["actualvalue"]
+            sampleSer.createSample(title, numPage,ratingCount ,textReviewCount,author,languageCode,publisher,publicationDate,datepos,actualvalue)
 
-            return result
+            return {
+                       'message': 'sample dadde',
+                       'status': 'success'
+                   },201
         except Exception as ex:
             abort(404, str(ex))
 

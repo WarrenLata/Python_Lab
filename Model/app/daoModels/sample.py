@@ -17,7 +17,7 @@ class Sample(BaseModel):
     ratingCount = IntegerField(default=100)
     textReviewCount = IntegerField(default=100)
     author = CharField()
-    languageCode=charFiedl()
+    languageCode=CharField()
     publisher = CharField()
     publicationDate = DateTimeField(null=True)
     datepos = DateTimeField(default=datetime.datetime.now)

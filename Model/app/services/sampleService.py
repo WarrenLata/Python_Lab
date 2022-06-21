@@ -34,8 +34,8 @@ class SampleService:
             sample = Sample.create(
                 sampleId=str(uuid.uuid4()),
                 title=title,
-                numPgae=numPage,
-                rationCoung=ratingCount,
+                numPage=numPage,
+                ratingCoung=ratingCount,
                 textReviewCount=textReviewCount,
                 author=author,
                 languageCode=languageCode,
@@ -44,7 +44,7 @@ class SampleService:
                 datepos=datepos,
                 actualvalue=actualvalue
             )
-            return sample
+            return " "
         except Exception as ex:
             logging.error(str(ex))
             raise Exception("Failed to create the new Sample")
