@@ -41,7 +41,7 @@ class Config:
         Returns:
             [str]: [the database host]
         """
-        dbHost = os.getenv("MYSQL_HOST", "127.0.0.1")
+        dbHost = os.getenv("MYSQL_HOST", "0.0.0.0")
         return dbHost
 
     def getDBPort(self):

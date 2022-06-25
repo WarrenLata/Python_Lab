@@ -13,7 +13,27 @@ class Models():
     def postModel(self):
         parser = reqparse.RequestParser()
         parser.add_argument(
-            'text', type=str,
+            'author', type=str,
+            location='form',
+            required=True,
+        )
+        parser.add_argument(
+            'numPage', type=int,
+            location='form',
+            required=True,
+        )
+        parser.add_argument(
+            'ratingCount', type=int,
+            location='form',
+            required=True,
+        )
+        parser.add_argument(
+            'textReviewCount', type=int,
+            location='form',
+            required=True,
+        )
+        parser.add_argument(
+            'publisher', type=str,
             location='form',
             required=True,
         )
