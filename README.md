@@ -8,6 +8,8 @@ This repository contains a project in which the goal is to analyse a dataset abo
 The contains all the installation and result of this work so you just need to have jupyter installed or ananconda to open it.
 Make sure the file Books.csv and and the notebook is in the same directory.
 
+The names is PythonSubmission.ipynb
+
 ## Docker application
 
 The project comes with a docker application writen in flask, the only operational endpoint at this time is /training​/train​/model​/predic endPoint which 
