@@ -19,6 +19,8 @@ You will need to have git install and terminal (WSL2 for example)
 next:`cd Python_Lab`
 and run the command `docker-compose up -d`
 
+the model and the encoders are in the modeldata folder
+
 This command will build the application and after the build is done you can access the api in http://localhost:8002/ on your machine.
 
 Don't hesitate to write me at latawarren@gmail.com if you have any remark of suggestion on this work.
