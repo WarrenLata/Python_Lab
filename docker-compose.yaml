@@ -5,7 +5,7 @@ version: '3.7'
 services:
 
 ########################
-# argus-urba-bot-train #
+# book bot #
 ########################
   model:
     container_name: "model_service"
